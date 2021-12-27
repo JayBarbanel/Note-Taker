@@ -58,7 +58,7 @@ app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
 });
 
-//delete note
+//to delete
 function deleteNote(id, notesArray) {
     for (let i = 0; i < notesArray.length; i++) {
         let note = notesArray[i];
@@ -79,4 +79,9 @@ app.delete("/api/notes/:id", (req, res) => {
         console.log(notesArray);
         res.json(notesArray);
     });
+});
+
+// This will isten for connections
+app.listen(PORT, function() {
+    console.log("Example app listening at PORT " + PORT);
 });
