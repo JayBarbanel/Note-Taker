@@ -57,3 +57,26 @@ app.get("/", function(req, res) {
 app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
 });
+
+//delete note
+function deleteNote(id, notesArray) {
+    for (let i = 0; i < notesArray.length; i++) {
+        let note = notesArray[i];
+        console.log(note);
+        if (note.id == id) {
+            notesArray.splice(i, 1);
+            writeFileAsync("./Develop/db/db.json", JSON.stringify(notesArray));
+            break;
+        }
+    }
+    return notesArray;
+}
+
+app.delete("/api/notes/:id", (req, res) => {
+    readFileAsync("./Develop/db/db.json", "utf8").then(function(data) {
+        console.log(data);
+        notesArray = deleteNote(req.params.id, JSON.parse(data));
+        console.log(notesArray);
+        res.json(notesArray);
+    });
+});
