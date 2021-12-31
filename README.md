@@ -27,5 +27,7 @@ jbarbanel531@gmail.com
 
 ## Links 
 Screencastify : https://watch.screencastify.com/v/zkxjQgwb7jnIIg2XBkUh
+
 Heroku : https://note-taker-jb-1.herokuapp.com/
+
 Github : https://github.com/JayBarbanel/Note-Taker
